@@ -34,7 +34,7 @@ img {
     box-shadow: 0 0 25px rgba(255,255,255,0.5);
 }
 
-/* button below image */
+/* button */
 button {
     margin-top: 20px;
     margin-bottom: 40px;
@@ -47,7 +47,7 @@ button {
     cursor: pointer;
 }
 
-/* 💌 SCROLLABLE LETTER FIX */
+/* 💌 letter */
 #letter {
     position: fixed;
     top: 50%;
@@ -56,22 +56,40 @@ button {
     opacity: 0;
     background: #fff;
     color: #333;
-    padding: 25px;
+    padding: 40px 20px 20px;
     border-radius: 20px;
     width: 300px;
     max-width: 85%;
-
-    max-height: 70vh;       /* 🔥 allows scroll */
-    overflow-y: auto;       /* 🔥 enables scroll */
-    scroll-behavior: smooth;
-
+    max-height: 70vh;
+    overflow-y: auto;
     transition: 0.4s;
-    z-index: 10;
+    z-index: 100;
+
+    position: fixed;
 }
 
+/* show */
 #letter.show {
     transform: translate(-50%, -50%) scale(1);
     opacity: 1;
+}
+
+/* 🔥 FORCE VISIBLE CLOSE BUTTON */
+.close-btn {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    background: #ff4e50;
+    color: white;
+    border-radius: 50%;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 999; /* 🔥 above everything */
 }
 
 /* hearts */
@@ -98,6 +116,8 @@ button {
 <button onclick="toggleLetter()" id="btn">little surprise for you 💌</button>
 
 <div id="letter">
+    <div class="close-btn" onclick="closeLetter()">✖</div>
+
     <h3>For You ❤️</h3>
     <p>
         Happy Birthday to you. Today is all about celebrating the wonderful person you are and the joy you bring into the lives of everyone around you. May this special day be filled with laughter, love, and moments that turn into beautiful memories you’ll cherish forever. You deserve all the happiness in the world, not just today but every single day that follows.
@@ -109,7 +129,7 @@ Birthdays are a reminder of how far you’ve come and how much more lies ahead. 
 I hope this year surprises you in the best ways possible and fills your life with endless reasons to smile. May you always be surrounded by people who care for you deeply and support you wholeheartedly. Enjoy every moment of your day, indulge in your favorite things, and make it truly unforgettable.
 
 Once again, wishing you a very Happy Birthday. May your day be as special, beautiful, and incredible as you are. 🎉🎂
- 
+
     </p>
     <p>
         I’m so lucky to have you.  
@@ -133,18 +153,19 @@ function playMusicOnce() {
 }
 
 function toggleLetter() {
-    const letter = document.getElementById("letter");
-    const btn = document.getElementById("btn");
-
     if (!isOpen) {
-        letter.classList.add("show");
-        btn.innerText = "close 💌";
+        document.getElementById("letter").classList.add("show");
+        document.getElementById("btn").innerText = "close 💌";
         isOpen = true;
     } else {
-        letter.classList.remove("show");
-        btn.innerText = "little surprise for you 💌";
-        isOpen = false;
+        closeLetter();
     }
+}
+
+function closeLetter() {
+    document.getElementById("letter").classList.remove("show");
+    document.getElementById("btn").innerText = "little surprise for you 💌";
+    isOpen = false;
 }
 
 /* hearts */
@@ -162,3 +183,4 @@ setInterval(createHeart, 300);
 
 </body>
 </html>
+

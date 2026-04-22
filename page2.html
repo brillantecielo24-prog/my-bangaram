@@ -19,7 +19,7 @@ body {
     overflow: hidden;
 }
 
-/* glowing title */
+/* title */
 h1 {
     position: absolute;
     top: 10%;
@@ -32,31 +32,47 @@ h1 {
         0 0 25px rgba(255,105,180,0.6);
 }
 
-/* 🧸 FIXED: closer teddys */
+/* container */
 .teddy-container {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 0px;
 }
 
 .teddy {
     font-size: 130px;
 }
 
+/* closer teddies */
+.teddy:first-child {
+    margin-right: -20px;
+}
+.teddy:last-child {
+    margin-left: -20px;
+}
+
+/* heart */
 .heart {
     position: relative;
     font-size: 110px;
-    cursor: pointer;
     animation: beat 1s infinite;
 }
 
+/* 🔥 FIXED LINK STYLE */
+.heart-link {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+}
+
+/* animation */
 @keyframes beat {
     0% { transform: scale(1); }
     50% { transform: scale(1.25); }
     100% { transform: scale(1); }
 }
 
-/* heart text */
+/* text inside heart */
 .heart-text {
     position: absolute;
     top: 50%;
@@ -66,6 +82,7 @@ h1 {
     width: 120px;
     text-align: center;
     font-weight: bold;
+    pointer-events: none;
     text-shadow: 
         0 0 6px rgba(255,255,255,0.8),
         0 0 12px rgba(255,105,180,0.7);
@@ -80,19 +97,16 @@ h1 {
 <div class="teddy-container">
     <div class="teddy">🧸</div>
 
-    <div class="heart" onclick="goNext()">
-        ❤️
-        <div class="heart-text">click if you<br>love me too</div>
-    </div>
+    <!-- 💖 GUARANTEED WORKING LINK -->
+    <a href="./page3.html" class="heart-link">
+        <div class="heart">
+            ❤️
+            <div class="heart-text">click if you<br>love me too</div>
+        </div>
+    </a>
 
     <div class="teddy">🧸</div>
 </div>
-
-<script>
-function goNext() {
-    window.location.href = "page3.html";
-}
-</script>
 
 </body>
 </html>

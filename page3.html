@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forever ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff9a9e, #fecfef);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Georgia', serif;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* title */
+h1 {
+    margin-top: 30px;
+    font-size: 40px;
+    text-shadow: 0 0 10px rgba(255,255,255,0.6);
+}
+
+/* image */
+img {
+    width: 260px;
+    max-width: 80%; /* mobile fix */
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(255,255,255,0.5);
+}
+
+/* button */
+button {
+    margin-bottom: 30px;
+    padding: 12px 25px;
+    font-size: 18px;
+    border-radius: 25px;
+    border: none;
+    background: white;
+    color: #ff4e50;
+    cursor: pointer;
+}
+
+/* letter popup */
+#letter {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    background: #fff;
+    color: #333;
+    padding: 25px;
+    border-radius: 20px;
+    width: 300px;
+    max-width: 85%; /* mobile fix */
+    transition: 0.4s;
+}
+
+#letter.show {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+/* floating hearts */
+.heart {
+    position: fixed;
+    top: -10px;
+    font-size: 20px;
+    animation: fall linear infinite;
+    opacity: 0.7;
+}
+
+@keyframes fall {
+    to { transform: translateY(100vh); }
+}
+</style>
+</head>
+
+<body onclick="playMusicOnce()">
+
+<h1>happy birthday my love ❤️</h1>
+
+<img src="photo.jpg">
+
+<button onclick="toggleLetter()" id="btn">little more love for you 💌</button>
+
+<div id="letter">
+    <h3>For You ❤️</h3>
+    <p>
+        I don’t say this enough… but you mean the world to me.  
+        Every little moment with you becomes a memory I never want to lose.  
+        You make my life softer, happier, and full of love.  
+    </p>
+</div>
+
+<audio id="music" loop>
+    <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+let musicStarted = false;
+let isOpen = false;
+
+function playMusicOnce() {
+    if (!musicStarted) {
+        document.getElementById("music").play();
+        musicStarted = true;
+    }
+}
+
+function toggleLetter() {
+    const letter = document.getElementById("letter");
+    const btn = document.getElementById("btn");
+
+    if (!isOpen) {
+        letter.classList.add("show");
+        btn.innerText = "close 💌";
+        isOpen = true;
+    } else {
+        letter.classList.remove("show");
+        btn.innerText = "little surprise for you 💌";
+        isOpen = false;
+    }
+}
+
+/* floating hearts */
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 5000);
+}
+setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>

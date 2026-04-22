@@ -34,7 +34,7 @@ img {
     box-shadow: 0 0 25px rgba(255,255,255,0.5);
 }
 
-/* ✅ button just below image */
+/* button below image */
 button {
     margin-top: 20px;
     margin-bottom: 40px;
@@ -47,7 +47,7 @@ button {
     cursor: pointer;
 }
 
-/* letter popup */
+/* 💌 SCROLLABLE LETTER FIX */
 #letter {
     position: fixed;
     top: 50%;
@@ -60,6 +60,11 @@ button {
     border-radius: 20px;
     width: 300px;
     max-width: 85%;
+
+    max-height: 70vh;       /* 🔥 allows scroll */
+    overflow-y: auto;       /* 🔥 enables scroll */
+    scroll-behavior: smooth;
+
     transition: 0.4s;
     z-index: 10;
 }
@@ -95,9 +100,20 @@ button {
 <div id="letter">
     <h3>For You ❤️</h3>
     <p>
-        I don’t say this enough… but you mean the world to me.  
-        Every little moment with you becomes a memory I never want to lose.  
-        You make my life softer, happier, and full of love.  
+        Happy Birthday to you. Today is all about celebrating the wonderful person you are and the joy you bring into the lives of everyone around you. May this special day be filled with laughter, love, and moments that turn into beautiful memories you’ll cherish forever. You deserve all the happiness in the world, not just today but every single day that follows.
+
+As you step into another year of your life, I hope it brings new opportunities, exciting adventures, and success in everything you choose to do. May you continue to grow stronger, wiser, and even more amazing with each passing day. Keep shining your light, because the world is a better place with you in it.
+
+Birthdays are a reminder of how far you’ve come and how much more lies ahead. So take a moment to appreciate yourself, your journey, and all the little victories that make you who you are. Surround yourself with positivity, chase your dreams fearlessly, and never stop believing in your potential.
+
+I hope this year surprises you in the best ways possible and fills your life with endless reasons to smile. May you always be surrounded by people who care for you deeply and support you wholeheartedly. Enjoy every moment of your day, indulge in your favorite things, and make it truly unforgettable.
+
+Once again, wishing you a very Happy Birthday. May your day be as special, beautiful, and incredible as you are. 🎉🎂
+ 
+    </p>
+    <p>
+        I’m so lucky to have you.  
+        Always yours ❤️  
     </p>
 </div>
 
@@ -146,4 +162,3 @@ setInterval(createHeart, 300);
 
 </body>
 </html>
-

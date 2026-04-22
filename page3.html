@@ -1,3 +1,4 @@
+```html id="belowimg"
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +26,7 @@ h1 {
     text-shadow: 0 0 10px rgba(255,255,255,0.6);
 }
 
-/* image bigger */
+/* image */
 img {
     width: 320px;
     max-width: 90%;
@@ -34,12 +35,10 @@ img {
     box-shadow: 0 0 25px rgba(255,255,255,0.5);
 }
 
-/* 🔥 FIX: button always visible */
+/* ✅ button just below image */
 button {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+    margin-top: 20px;
+    margin-bottom: 40px;
     padding: 12px 25px;
     font-size: 18px;
     border-radius: 25px;
@@ -47,7 +46,6 @@ button {
     background: white;
     color: #ff4e50;
     cursor: pointer;
-    z-index: 20;
 }
 
 /* letter popup */
@@ -72,7 +70,7 @@ button {
     opacity: 1;
 }
 
-/* floating hearts */
+/* hearts */
 .heart {
     position: fixed;
     top: -10px;
@@ -149,4 +147,4 @@ setInterval(createHeart, 300);
 
 </body>
 </html>
-
+```
